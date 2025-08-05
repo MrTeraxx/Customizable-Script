@@ -1,0 +1,59 @@
+"""
+Crazy Drift Auto Key Holder - Customizable Script
+================================================
+
+This script holds down two keys (default: 's' and 'd') continuously for a web game
+running inside the Opera GX browser (or any window matching the target window title).
+It also attempts to keep the target browser window focused periodically so the game
+keeps receiving input, even if you switch tabs or minimize.
+
+Controls:
+- Toggle key (default: ']'): Starts/stops holding the keys.
+- Exit key (default: 'esc'): Releases keys and exits the script.
+
+Customization:
+-------------
+- TARGET_WINDOW_TITLE: Partial or full title of the target window (case-insensitive).
+- KEYS_TO_HOLD: List of keys to hold down when toggled on.
+- TOGGLE_HOTKEY: The key to start/stop holding keys.
+- EXIT_HOTKEY: The key to exit the script.
+- FOCUS_INTERVAL: Time in seconds between refocusing the target window when holding keys.
+
+Usage:
+------
+1. Install dependencies:
+   pip install keyboard pygetwindow
+
+2. Run this script.
+
+3. Focus the Opera GX browser with your game loaded.
+
+4. Press the toggle hotkey (']' by default) to start holding keys.
+
+5. Press it again to stop.
+
+6. Press the exit hotkey ('esc' by default) to quit.
+
+Notes:
+------
+- Due to OS and browser limitations, the window must be visible for reliable input.
+- The script tries to keep the window focused but will steal focus if you switch tabs/apps.
+- Customize keys and timings below as you wish!
+
+"""
+
+import keyboard
+import pygetwindow as gw
+import time
+import threading
+
+# ======= CUSTOMIZABLE SETTINGS =======
+
+TARGET_WINDOW_TITLE = "Opera"        # Part of the browser window title (case-insensitive)
+KEYS_TO_HOLD = ['s', 'd']             # Keys to hold down continuously
+TOGGLE_HOTKEY = ']'                   # Key to toggle holding keys on/off
+EXIT_HOTKEY = 'esc'                   # Key to exit the script gracefully
+FOCUS_INTERVAL = 1.0                  # Seconds between attempts to refocus the window when holding keys
+
+# =====================================
+
